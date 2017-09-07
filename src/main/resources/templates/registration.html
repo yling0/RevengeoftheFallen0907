@@ -23,25 +23,20 @@
 
 <div class="container">
 
-    <form class="form-signin" th:action="@{/login}" method="post">
+    <form class="form-signin" autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
+
+        <label for="firstname" class="sr-only">Fisrt Name</label>
+        <input type="text" name="firstName" id="firstname" class="form-control" placeholder="First Name" required autofocus>
+        <label for="lastname" class="sr-only">Last Name</label>
+        <input type="text" name="lastName" id="lastname" class="form-control" placeholder="Last Name" required>
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="example@email.com" required autofocus>
         <label for="inputusername" class="sr-only">User Name</label>
         <input type="text" name="username" id="inputusername" class="form-control" placeholder="User Name" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-        <div th:if="${param.error}" class="alert alert-danger" role="alert">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div><!-- /.container -->
